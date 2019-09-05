@@ -16,12 +16,23 @@ class ActorTableViewController: UITableViewController {
     var actors: [Actor] = []
  let urlStr = ("https://api.themoviedb.org/3/person/popular?api_key=be6e82ab66a065f245b84e4b4692aee8")
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         downloadJson(urlJsonString: urlStr)
     }
+    
+    @IBAction func refersh(_ sender: UIRefreshControl) {
+        actors.removeAll()
+        downloadJson(urlJsonString: urlStr)
+        sender.endRefreshing()
+//        let elementindex = actors.count
+//        actors.append(actors[elementindex])
+         self.tableView.reloadData()
+        
+    }
+    
+    
     func downloadJson(urlJsonString:String) {
 //        let config = URLSessionConfiguration.default
 //        let session = URLSession(configuration: config)
