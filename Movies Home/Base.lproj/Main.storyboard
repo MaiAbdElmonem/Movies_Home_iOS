@@ -46,13 +46,16 @@
                             <outlet property="delegate" destination="G94-JL-7Uj" id="Qc3-Lk-n7k"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pN5-GK-K8i"/>
+                    <navigationItem key="navigationItem" id="pN5-GK-K8i">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="d11-3L-FfE"/>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="15H-iY-OK9">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <action selector="refersh:" destination="G94-JL-7Uj" eventType="valueChanged" id="udZ-75-NrM"/>
-                        </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="searchOutlet" destination="d11-3L-FfE" id="I7e-W1-mzS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EJ-Rp-BZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

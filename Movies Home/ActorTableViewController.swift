@@ -8,22 +8,42 @@
 
 import UIKit
 
-class ActorTableViewController: UITableViewController {
+class ActorTableViewController: UITableViewController ,UISearchBarDelegate {
+     let searchBar = UISearchBar()
+    
+    @IBOutlet weak var searchOutlet: UIBarButtonItem!
     var actorImg  : UIImageView!
     var namelabel : UILabel!
-    var actorPage:Int=1
+    var actorPage:Int = 1
     
     var actors: [Actor] = []
- let urlStr = ("https://api.themoviedb.org/3/person/popular?api_key=be6e82ab66a065f245b84e4b4692aee8")
     
+    
+    var searchText:String?
+ let urlStr = ("https://api.themoviedb.org/3/person/popular?api_key=be6e82ab66a065f245b84e4b4692aee8")
+     let searchURL = "https://api.themoviedb.org/3/search/person?api_key=facd2bc8ee066628c8f78bbb7be41943&query="
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         searchBar.delegate = self
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem(rawValue: 12)! , target: self, action: #selector(searchFunc))
+        
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Refresh")
+        self.tableView.refreshControl?.addTarget(self, action: #selector(refersh(_:)), for: UIControl.Event.valueChanged)
+        self.tableView.addSubview(self.tableView.refreshControl!) // not required when using UITableViewController
+        
+        
         downloadJson(urlJsonString: urlStr)
     }
     
+
+    
+    
     @IBAction func refersh(_ sender: UIRefreshControl) {
         actors.removeAll()
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        hideSearchBar()
         downloadJson(urlJsonString: urlStr)
         sender.endRefreshing()
 //        let elementindex = actors.count
@@ -32,12 +52,111 @@ class ActorTableViewController: UITableViewController {
         
     }
     
+    @IBAction func searchFunc (sender:AnyObject) {
+      self.searchBar.text = ""
+      self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+       
+      self.navigationItem.rightBarButtonItem = nil
+       createSearchBar()
+        setGestures()
+}
+
+    func setGestures(){
+        
+        let keyboardTap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        keyboardTap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(keyboardTap)
+        
+    }
+    @objc func hideKeyboard(){
+        print("hideKeyboard")
+        searchBar.resignFirstResponder()
+        self.view.endEditing(true)
+        if let cancelButton = self.searchBar.value(forKey: "cancelButton") as? UIButton {
+             cancelButton.isEnabled = true
+        }
+    }
+    
+    func createSearchBar(){
+        
+        self.searchBar.showsCancelButton = true
+        searchBar.placeholder = "Search Person"
+       self.searchBar.becomeFirstResponder()
+       
+        self.searchBar.tintColor = UIColor.lightGray
+        self.navigationItem.titleView = searchBar
+        self.view.endEditing(false)
+    }
+    
+   
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("textDidChange")
+        actors = []
+        self.tableView.reloadData()
+        self.searchText = searchText
+        
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+       
+        print("searchBarTextDidEndEditing")
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarSearchButtonClicked")
+        
+        searchBar.resignFirstResponder()
+        if let cancelButton = self.searchBar.value(forKey: "cancelButton") as? UIButton {
+            cancelButton.isEnabled = true
+        }
+        if searchText != nil {
+            downloadJson(urlJsonString: searchURL+""+searchText!)
+        }
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+       actors = []
+        self.tableView.reloadData()
+       print("searchBarTextDidBeginEditing")
+        
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+
+        searchBar.resignFirstResponder()
+        if let cancelButton = self.searchBar.value(forKey: "cancelButton") as? UIButton {
+            cancelButton.isEnabled = true
+        }
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+    
+        hideSearchBar()
+    }
+    
+    
+    func hideSearchBar() {
+        
+        navigationItem.titleView = nil
+        self.navigationItem.rightBarButtonItem = self.searchOutlet
+       
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem(rawValue: 12)! , target: self, action: #selector(searchFunc))
+        self.actors = []
+        self.tableView.reloadData()
+        downloadJson(urlJsonString: urlStr)
+        
+    }
+    
+    
     
     func downloadJson(urlJsonString:String) {
 //        let config = URLSessionConfiguration.default
 //        let session = URLSession(configuration: config)
-        let url = URL(string:urlJsonString)
-       
+        let urlString = urlJsonString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        if urlString != nil {
+        let url = URL(string: urlString!)
+            
          let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             
             // ensure there is no error for this HTTP response
@@ -80,6 +199,7 @@ class ActorTableViewController: UITableViewController {
                 self.actors.append(actorObj)
             }
             DispatchQueue.main.async {
+                self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
                 self.tableView.reloadData()
             }
         }
@@ -87,10 +207,10 @@ class ActorTableViewController: UITableViewController {
         }
         
         task.resume()
-        
+        }
     }
     
-    func getImage(_ url_str:String, _ imageView:UIImageView)
+    func getImage(_ url_str:String, _ indexPath :IndexPath)
     {
         
         let url:URL = URL(string: url_str)!
@@ -103,21 +223,24 @@ class ActorTableViewController: UITableViewController {
             
             if data != nil
             {
-                let image = UIImage(data: data!)
+                let img = UIImage(data: data!)
                 
                 
-                if(image != nil)
+                if(img != nil)
                 {
                     
                     DispatchQueue.main.async(execute: {
+                       let imgCell = self.tableView.cellForRow(at: indexPath)
                         
-                        imageView.image = image
-                        imageView.alpha = 0
+                        if (imgCell != nil){
+                        self.actorImg = imgCell?.viewWithTag(1)  as? UIImageView
+                        self.actorImg.image = img
+                        //self.actorImg.alpha = 0
                         
-                        UIView.animate(withDuration: 2.5, animations: {
-                            imageView.alpha = 1.0
-                        })
-                        
+//                        UIView.animate(withDuration: 0.3, animations: {
+//                            self.actorImg.alpha = 1.0
+//                        })
+                        }
                     })
                     
                 }
@@ -159,7 +282,7 @@ class ActorTableViewController: UITableViewController {
          let url="https://image.tmdb.org/t/p/w500/"
         let imageUrl=url + actors[indexPath.row].profile_path
         
-        getImage(imageUrl,actorImg)
+        getImage(imageUrl,indexPath)
         
         if(indexPath.row==actors.count-1){
             if( actorPage<500){
@@ -186,8 +309,8 @@ class ActorTableViewController: UITableViewController {
         
     }
     
-
-   
+  
+    
 
     /*
     // Override to support conditional editing of the table view.
