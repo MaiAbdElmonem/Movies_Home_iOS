@@ -1,32 +1,27 @@
 //
-//  DetailssViewController.swift
+//  ActorListViewController.swift
 //  Movies Home
 //
-//  Created by Lost Star on 9/3/19.
+//  Created by Mai Abd Elmonem on 9/10/19.
 //  Copyright © 2019 Mai Ahmed. All rights reserved.
 //
 
 import UIKit
 
-class DetailssViewController: UIViewController {
+class ActorListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
     
-    var stringPassed = ""
-    var ImagePassed = ""
-    var idPassed = Int()
-    var personId = Int()
-    
-    var personImage:UIImageView!
-    var personNameLabel:UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        personId=idPassed
-//parseJSON(personId: personId)
-        
-        personNameLabel.text=stringPassed
-        personImage.viewWithTag(1)
-        
+
+        // Do any additional setup after loading the view.
     }
     
 
