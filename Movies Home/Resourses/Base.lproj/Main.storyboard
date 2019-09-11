@@ -106,7 +106,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="143" id="eu8-lV-lnk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="143" id="eu8-lV-lnk" customClass="ActorTableViewCell" customModule="Movies_Home" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="143"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eu8-lV-lnk" id="G1j-Yx-vX2">
@@ -126,11 +126,15 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="actorImage" destination="48s-d6-yRN" id="Kfh-lW-wj6"/>
+                                            <outlet property="actorName" destination="VHG-3b-Vhb" id="LPc-AN-53A"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="G94-JL-7Uj" id="NNr-1G-EGJ"/>
-                                    <outlet property="delegate" destination="G94-JL-7Uj" id="5KQ-kA-EfD"/>
+                                    <outlet property="dataSource" destination="DT4-HB-TC8" id="dAU-cr-zq9"/>
+                                    <outlet property="delegate" destination="DT4-HB-TC8" id="GWf-mH-Btu"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -138,6 +142,9 @@
                         <viewLayoutGuide key="safeArea" id="97k-si-d45"/>
                     </view>
                     <navigationItem key="navigationItem" id="DMk-rh-uWY"/>
+                    <connections>
+                        <outlet property="actorsTableView" destination="cYy-0T-lZS" id="Sp3-Mp-BB8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVU-CQ-NXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,7 +265,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVk-je-wPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-917" y="-167"/>
+            <point key="canvasLocation" x="-1145" y="-189"/>
         </scene>
     </scenes>
 </document>

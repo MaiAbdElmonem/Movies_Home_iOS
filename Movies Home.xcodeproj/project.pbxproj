@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D0453C52328E19100385811 /* ActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0453C42328E19100385811 /* ActorTableViewCell.swift */; };
 		2D0616932327CD38006FAC66 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0616922327CD38006FAC66 /* Network.swift */; };
 		2D0616952327CDCD006FAC66 /* ActorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0616942327CDCD006FAC66 /* ActorListViewController.swift */; };
 		2DA6926B232137B600D547C1 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6926A232137B600D547C1 /* FullScreenViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D0453C42328E19100385811 /* ActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorTableViewCell.swift; sourceTree = "<group>"; };
 		2D0616922327CD38006FAC66 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		2D0616942327CDCD006FAC66 /* ActorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListViewController.swift; sourceTree = "<group>"; };
 		2DA6926A232137B600D547C1 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
@@ -123,17 +125,10 @@
 			path = Resourses;
 			sourceTree = "<group>";
 		};
-		2D0616902327BCF2006FAC66 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				84802C35231E3371008FDF3D /* Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		2D0616912327CC51006FAC66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2D0453C42328E19100385811 /* ActorTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,8 +163,8 @@
 				2D06168D2327BC31006FAC66 /* Model */,
 				84F968E3231F47410059A6D1 /* CustomCollectionCell.swift */,
 				84F968E5231F47C00059A6D1 /* HeaderViewCollection.swift */,
+				84802C35231E3371008FDF3D /* Info.plist */,
 				2D06168F2327BCC8006FAC66 /* Resourses */,
-				2D0616902327BCF2006FAC66 /* Supporting Files */,
 			);
 			path = "Movies Home";
 			sourceTree = "<group>";
@@ -330,6 +325,7 @@
 				2D0616952327CDCD006FAC66 /* ActorListViewController.swift in Sources */,
 				84802C2C231E3369008FDF3D /* ViewController.swift in Sources */,
 				2D0616932327CD38006FAC66 /* Network.swift in Sources */,
+				2D0453C52328E19100385811 /* ActorTableViewCell.swift in Sources */,
 				2DA6926B232137B600D547C1 /* FullScreenViewController.swift in Sources */,
 				84F968E6231F47C00059A6D1 /* HeaderViewCollection.swift in Sources */,
 				84802C2A231E3369008FDF3D /* AppDelegate.swift in Sources */,

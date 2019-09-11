@@ -9,20 +9,50 @@
 import UIKit
 
 class ActorListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
     
+    let networkService = Network()
+     var actorPage:Int = 1
+    var actors : [Actor]=[]
+    
+    
+    @IBOutlet weak var actorsTableView: UITableView!
+    
+       
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        networkService.whenComplete={arr in self.actors=arr
+            DispatchQueue.main.async {
+                                        self.actorsTableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+                                        self.actorsTableView.reloadData()
+                                    }
+        }
+          networkService.downloadJson(urlJsonString: networkService.urlStr)
 
-        // Do any additional setup after loading the view.
+        
     }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return actors.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as? ActorTableViewCell
+        
+        cell?.actorName.text=actors[indexPath.row].name
+        
+        return cell!
+    }
+    
     
 
     /*
