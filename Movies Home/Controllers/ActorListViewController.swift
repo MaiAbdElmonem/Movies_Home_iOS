@@ -13,7 +13,7 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     
     let networkService = Network()
      var actorPage:Int = 1
-    var actors : [Actor]=[]
+//    var actors : [Actor]=[]
     
     
     @IBOutlet weak var actorsTableView: UITableView!
@@ -24,14 +24,18 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        networkService.whenComplete={arr in self.actors=arr
-            DispatchQueue.main.async {
-                                        self.actorsTableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
-                                        self.actorsTableView.reloadData()
-                                    }
+//        networkService.whenComplete={arr in self.actors=arr
+//            DispatchQueue.main.async {
+//                                        self.actorsTableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+//                                        self.actorsTableView.reloadData()
+//                                    }
+//        }
+//          networkService.downloadJson(urlJsonString: networkService.urlStr)
+        self.networkService.downloadJson(pageNum: 1){ [weak self] success in
+            if(success){
+                self?.reloadTableData()
+            }
         }
-          networkService.downloadJson(urlJsonString: networkService.urlStr)
-
         
     }
     
@@ -42,18 +46,24 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return actors.count
+        return networkService.ActorsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as? ActorTableViewCell
         
-        cell?.actorName.text=actors[indexPath.row].name
+        cell?.actorName.text=networkService.ActorsArray[indexPath.row].name
         
         return cell!
     }
     
+    func reloadTableData(){
+        DispatchQueue.main.async {
+            self.actorsTableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+                self.actorsTableView.reloadData()
+        }
     
+    }
 
     /*
     // MARK: - Navigation
