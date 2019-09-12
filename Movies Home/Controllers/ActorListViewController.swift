@@ -18,12 +18,12 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var actorsTableView: UITableView!
     
-       
-  
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+//       actorsTableView.delegate=self
+//        actorsTableView.dataSource=self
 //        networkService.whenComplete={arr in self.actors=arr
 //            DispatchQueue.main.async {
 //                                        self.actorsTableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
@@ -56,6 +56,16 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
         
         return cell!
     }
+    
+         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            print("You selected row #\(indexPath.row)!")
+            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
+            myVC.stringPassed = networkService.ActorsArray[indexPath.row].name
+//            myVC.theImagePassed =  actors[indexPath.row].profile_path
+            myVC.idPassed = networkService.ActorsArray[indexPath.row].id
+            navigationController?.pushViewController(myVC, animated: true)
+    
+        }
     
     func reloadTableData(){
         DispatchQueue.main.async {

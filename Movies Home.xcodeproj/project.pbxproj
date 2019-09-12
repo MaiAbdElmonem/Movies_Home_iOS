@@ -128,6 +128,8 @@
 		2D0616912327CC51006FAC66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84F968E3231F47410059A6D1 /* CustomCollectionCell.swift */,
+				84F968E5231F47C00059A6D1 /* HeaderViewCollection.swift */,
 				2D0453C42328E19100385811 /* ActorTableViewCell.swift */,
 			);
 			path = Views;
@@ -161,8 +163,6 @@
 				2D0616912327CC51006FAC66 /* Views */,
 				2D06168E2327BC69006FAC66 /* Controllers */,
 				2D06168D2327BC31006FAC66 /* Model */,
-				84F968E3231F47410059A6D1 /* CustomCollectionCell.swift */,
-				84F968E5231F47C00059A6D1 /* HeaderViewCollection.swift */,
 				84802C35231E3371008FDF3D /* Info.plist */,
 				2D06168F2327BCC8006FAC66 /* Resourses */,
 			);
