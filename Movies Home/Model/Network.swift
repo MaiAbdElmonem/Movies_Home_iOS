@@ -14,8 +14,8 @@ class Network {
      var ActorsArray = Array<Actor>()
    
     let urlStr = ("https://api.themoviedb.org/3/person/popular?api_key=be6e82ab66a065f245b84e4b4692aee8&page=")
-
-    
+    let searchURL = "https://api.themoviedb.org/3/search/person?api_key=facd2bc8ee066628c8f78bbb7be41943&query="
+     var totalResults = 0
     
 //    var whenComplete: ((Data?)->())?
     
@@ -23,6 +23,7 @@ class Network {
         if pageNum == 1 {
             ActorsArray.removeAll()
         }
+    
           let url = URL(string: urlStr+"\(pageNum)")!
 //        let urlString = urlJsonString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 //        if urlString != nil {
@@ -85,6 +86,8 @@ class Network {
         
             task.resume()
         }
+    
+
     }
     
 

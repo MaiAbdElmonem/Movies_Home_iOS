@@ -10,7 +10,5 @@ import UIKit
 
 class HeaderViewCollection: UICollectionReusableView {
     @IBOutlet var headerImage: UIImageView!
-    
-    
     @IBOutlet var headerLabel: UILabel!
 }
