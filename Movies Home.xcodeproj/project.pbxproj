@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D0453C52328E19100385811 /* ActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0453C42328E19100385811 /* ActorTableViewCell.swift */; };
-		2D0616932327CD38006FAC66 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0616922327CD38006FAC66 /* Network.swift */; };
 		2D0616952327CDCD006FAC66 /* ActorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0616942327CDCD006FAC66 /* ActorListViewController.swift */; };
 		2D1C6D44232F8AEE00753392 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D43232F8AEE00753392 /* ModelProtocol.swift */; };
 		2D1C6D46232F8D1E00753392 /* ActorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D45232F8D1E00753392 /* ActorModel.swift */; };
@@ -48,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		2D0453C42328E19100385811 /* ActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorTableViewCell.swift; sourceTree = "<group>"; };
-		2D0616922327CD38006FAC66 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		2D0616942327CDCD006FAC66 /* ActorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListViewController.swift; sourceTree = "<group>"; };
 		2D1C6D43232F8AEE00753392 /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
 		2D1C6D45232F8D1E00753392 /* ActorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorModel.swift; sourceTree = "<group>"; };
@@ -103,8 +101,6 @@
 		2D06168D2327BC31006FAC66 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2D0616922327CD38006FAC66 /* Network.swift */,
-				848F5E38231E5651008033E8 /* Actor.swift */,
 				84F968D9231F16E00059A6D1 /* Profile.swift */,
 			);
 			path = Services;
@@ -125,7 +121,6 @@
 			children = (
 				84F968E3231F47410059A6D1 /* CustomCollectionCell.swift */,
 				84F968E5231F47C00059A6D1 /* HeaderViewCollection.swift */,
-				2D0453C42328E19100385811 /* ActorTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +168,7 @@
 		2D1C6D3A232F7E5400753392 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				848F5E38231E5651008033E8 /* Actor.swift */,
 				2D1C6D43232F8AEE00753392 /* ModelProtocol.swift */,
 				2D1C6D45232F8D1E00753392 /* ActorModel.swift */,
 			);
@@ -184,6 +180,7 @@
 			children = (
 				2D0616942327CDCD006FAC66 /* ActorListViewController.swift */,
 				2D1C6D47232F90B900753392 /* ViewProtocol.swift */,
+				2D0453C42328E19100385811 /* ActorTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,7 +428,6 @@
 				848F5E39231E5651008033E8 /* Actor.swift in Sources */,
 				2D0616952327CDCD006FAC66 /* ActorListViewController.swift in Sources */,
 				84802C2C231E3369008FDF3D /* ViewController.swift in Sources */,
-				2D0616932327CD38006FAC66 /* Network.swift in Sources */,
 				2D0453C52328E19100385811 /* ActorTableViewCell.swift in Sources */,
 				2DA6926B232137B600D547C1 /* FullScreenViewController.swift in Sources */,
 				84F968E6231F47C00059A6D1 /* HeaderViewCollection.swift in Sources */,

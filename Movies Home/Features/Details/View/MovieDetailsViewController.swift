@@ -16,7 +16,7 @@ class MovieDetailsViewController: UIViewController , UICollectionViewDataSource,
     var personId = Int()
     var file_path:String=""
     @IBOutlet var collectionview: UICollectionView!
-     let networkService = Network()
+//     let networkService = Network()
     var profiles:[Profiles]=[]
     
     

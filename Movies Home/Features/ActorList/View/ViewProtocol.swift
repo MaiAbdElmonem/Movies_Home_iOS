@@ -8,6 +8,8 @@
 
 import Foundation
 
-protocol ActorViewProtocol {
+protocol ActorViewProtocol:class {
     
+    func reloadTableData()
+   
 }
