@@ -10,6 +10,10 @@
 		2D0453C52328E19100385811 /* ActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0453C42328E19100385811 /* ActorTableViewCell.swift */; };
 		2D0616932327CD38006FAC66 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0616922327CD38006FAC66 /* Network.swift */; };
 		2D0616952327CDCD006FAC66 /* ActorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0616942327CDCD006FAC66 /* ActorListViewController.swift */; };
+		2D1C6D44232F8AEE00753392 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D43232F8AEE00753392 /* ModelProtocol.swift */; };
+		2D1C6D46232F8D1E00753392 /* ActorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D45232F8D1E00753392 /* ActorModel.swift */; };
+		2D1C6D48232F90B900753392 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D47232F90B900753392 /* ViewProtocol.swift */; };
+		2D1C6D4A232F91B500753392 /* ActorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D49232F91B500753392 /* ActorListPresenter.swift */; };
 		2DA6926B232137B600D547C1 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6926A232137B600D547C1 /* FullScreenViewController.swift */; };
 		84802C2A231E3369008FDF3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802C29231E3369008FDF3D /* AppDelegate.swift */; };
 		84802C2C231E3369008FDF3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84802C2B231E3369008FDF3D /* ViewController.swift */; };
@@ -46,6 +50,10 @@
 		2D0453C42328E19100385811 /* ActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorTableViewCell.swift; sourceTree = "<group>"; };
 		2D0616922327CD38006FAC66 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		2D0616942327CDCD006FAC66 /* ActorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListViewController.swift; sourceTree = "<group>"; };
+		2D1C6D43232F8AEE00753392 /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
+		2D1C6D45232F8D1E00753392 /* ActorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorModel.swift; sourceTree = "<group>"; };
+		2D1C6D47232F90B900753392 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		2D1C6D49232F91B500753392 /* ActorListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListPresenter.swift; sourceTree = "<group>"; };
 		2DA6926A232137B600D547C1 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		84802C26231E3369008FDF3D /* Movies Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84802C29231E3369008FDF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,24 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D06168D2327BC31006FAC66 /* Model */ = {
+		2D06168D2327BC31006FAC66 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				2D0616922327CD38006FAC66 /* Network.swift */,
 				848F5E38231E5651008033E8 /* Actor.swift */,
 				84F968D9231F16E00059A6D1 /* Profile.swift */,
 			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2D06168E2327BC69006FAC66 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				84F968E1231F46160059A6D1 /* MovieDetailsViewController.swift */,
-				2DA6926A232137B600D547C1 /* FullScreenViewController.swift */,
-				2D0616942327CDCD006FAC66 /* ActorListViewController.swift */,
-			);
-			path = Controllers;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		2D06168F2327BCC8006FAC66 /* Resourses */ = {
@@ -130,6 +128,116 @@
 				2D0453C42328E19100385811 /* ActorTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2D1C6D36232F7D9500753392 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C6D39232F7E1000753392 /* FullScreen */,
+				2D1C6D38232F7DF500753392 /* Details */,
+				2D1C6D37232F7DD900753392 /* ActorList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		2D1C6D37232F7DD900753392 /* ActorList */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C6D3C232F7E6E00753392 /* Presenter */,
+				2D1C6D3B232F7E6300753392 /* View */,
+				2D1C6D3A232F7E5400753392 /* Model */,
+			);
+			path = ActorList;
+			sourceTree = "<group>";
+		};
+		2D1C6D38232F7DF500753392 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C6D3F232F7E9900753392 /* Presenter */,
+				2D1C6D3E232F7E8E00753392 /* View */,
+				2D1C6D3D232F7E8200753392 /* Model */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		2D1C6D39232F7E1000753392 /* FullScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C6D42232F7EBA00753392 /* Presenter */,
+				2D1C6D41232F7EB200753392 /* View */,
+				2D1C6D40232F7EAA00753392 /* Model */,
+			);
+			path = FullScreen;
+			sourceTree = "<group>";
+		};
+		2D1C6D3A232F7E5400753392 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C6D43232F8AEE00753392 /* ModelProtocol.swift */,
+				2D1C6D45232F8D1E00753392 /* ActorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D1C6D3B232F7E6300753392 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D0616942327CDCD006FAC66 /* ActorListViewController.swift */,
+				2D1C6D47232F90B900753392 /* ViewProtocol.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D1C6D3C232F7E6E00753392 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2D1C6D49232F91B500753392 /* ActorListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2D1C6D3D232F7E8200753392 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D1C6D3E232F7E8E00753392 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84F968E1231F46160059A6D1 /* MovieDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D1C6D3F232F7E9900753392 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2D1C6D40232F7EAA00753392 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D1C6D41232F7EB200753392 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DA6926A232137B600D547C1 /* FullScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D1C6D42232F7EBA00753392 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		84802C1D231E3369008FDF3D = {
@@ -157,10 +265,10 @@
 			children = (
 				84802C29231E3369008FDF3D /* AppDelegate.swift */,
 				84802C2B231E3369008FDF3D /* ViewController.swift */,
-				2D0616912327CC51006FAC66 /* Views */,
-				2D06168E2327BC69006FAC66 /* Controllers */,
-				2D06168D2327BC31006FAC66 /* Model */,
+				2D1C6D36232F7D9500753392 /* Features */,
+				2D06168D2327BC31006FAC66 /* Services */,
 				84802C35231E3371008FDF3D /* Info.plist */,
+				2D0616912327CC51006FAC66 /* Views */,
 				2D06168F2327BCC8006FAC66 /* Resourses */,
 			);
 			path = "Movies Home";
@@ -316,7 +424,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F968DA231F16E00059A6D1 /* Profile.swift in Sources */,
+				2D1C6D44232F8AEE00753392 /* ModelProtocol.swift in Sources */,
+				2D1C6D46232F8D1E00753392 /* ActorModel.swift in Sources */,
 				84F968E2231F46160059A6D1 /* MovieDetailsViewController.swift in Sources */,
+				2D1C6D48232F90B900753392 /* ViewProtocol.swift in Sources */,
 				848F5E39231E5651008033E8 /* Actor.swift in Sources */,
 				2D0616952327CDCD006FAC66 /* ActorListViewController.swift in Sources */,
 				84802C2C231E3369008FDF3D /* ViewController.swift in Sources */,
@@ -324,6 +435,7 @@
 				2D0453C52328E19100385811 /* ActorTableViewCell.swift in Sources */,
 				2DA6926B232137B600D547C1 /* FullScreenViewController.swift in Sources */,
 				84F968E6231F47C00059A6D1 /* HeaderViewCollection.swift in Sources */,
+				2D1C6D4A232F91B500753392 /* ActorListPresenter.swift in Sources */,
 				84802C2A231E3369008FDF3D /* AppDelegate.swift in Sources */,
 				84F968E4231F47410059A6D1 /* CustomCollectionCell.swift in Sources */,
 			);
