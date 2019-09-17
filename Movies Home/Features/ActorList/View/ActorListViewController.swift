@@ -11,8 +11,6 @@ import UIKit
 class ActorListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate ,ActorViewProtocol{
     
     var presenter:ActorListPresenter?
-   
-//     var actorPage:Int = 1
 
     var  imageURL="https://image.tmdb.org/t/p/w500/"
 
@@ -36,19 +34,6 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
         presenter?.refresh()
         presenter?.getJson()
     }
-
-    func reloading(){
-        DispatchQueue.main.async {
-            self.actorsTableView.separatorStyle = .singleLine
-            self.actorsTableView.reloadData()
-            self.actorsTableView.refreshControl?.endRefreshing()
-        }
-        
-    }
-    
-    
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -75,20 +60,21 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
-//         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//            print("You selected row #\(indexPath.row)!")
-//            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
-//            myVC.stringPassed = networkService.ActorsArray[indexPath.row].name
+         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           print("You selected row #\(indexPath.row)!")
+            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
+            myVC.stringPassed = presenter!.getName(index: indexPath.row)
 ////            myVC.theImagePassed =  actors[indexPath.row].profile_path
 //            myVC.idPassed = networkService.ActorsArray[indexPath.row].id
-//            navigationController?.pushViewController(myVC, animated: true)
+            navigationController?.pushViewController(myVC, animated: true)
 //    
-//        }
+        }
     
     func reloadTableData(){
         DispatchQueue.main.async {
-            self.actorsTableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
-                self.actorsTableView.reloadData()
+            self.actorsTableView.separatorStyle = .singleLine
+            self.actorsTableView.reloadData()
+            self.actorsTableView.refreshControl?.endRefreshing()
         }    
     }
 }
