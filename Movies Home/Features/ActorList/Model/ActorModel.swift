@@ -9,6 +9,7 @@
 import Foundation
 
 class ActorModel: ActorModelProtocol {
+    
     var totalResults = 0
     var actors : [Actor]=[]
     let urlStr = ("https://api.themoviedb.org/3/person/popular?api_key=be6e82ab66a065f245b84e4b4692aee8&page=")
@@ -20,6 +21,9 @@ class ActorModel: ActorModelProtocol {
     
     func getName(index: Int) -> String {
         return actors[index].name
+    }
+    func getImage(index: Int) -> String {
+        return actors[index].profile_path
     }
     func refresh() {
         actors.removeAll()

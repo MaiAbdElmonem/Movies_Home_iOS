@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ActorListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate ,ActorViewProtocol{
     
@@ -48,6 +49,7 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as? ActorTableViewCell
         
 //        cell?.actorName.text=networkService.ActorsArray[indexPath.row].name
+//         let ImageURL = URL(string: )!
        
         if (indexPath.row == presenter!.getarrCount()-3 && presenter?.getarrCount() != presenter?.getResults()){
             presenter?.incrementPage()
@@ -56,6 +58,9 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
         if presenter!.getarrCount() != 0 {
              cell?.actorName.text = presenter!.getName(index:indexPath.row)
         }
+//        if presenter!.getarrCount()!=0 {
+//            cell?.actorImage.sd_setImage(with: <#T##URL?#>, placeholderImage: <#T##UIImage?#>)
+//        }
         return cell!
     }
     

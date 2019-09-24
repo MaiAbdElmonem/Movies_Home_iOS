@@ -10,6 +10,8 @@ import XCTest
 @testable import Movies_Home
 
 class Movies_HomeTests: XCTestCase {
+//    var sut = ActorListPresenter(actorview: ActorViewProtocol, actormodel: ActorModelProtocol)
+    
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
