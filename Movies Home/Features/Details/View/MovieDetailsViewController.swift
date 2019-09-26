@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate {
+class MovieDetailsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate , ProfileViewProtocol{
+    func reloadCollectionData() {
+        <#code#>
+    }
+    
 
     var stringPassed = ""
     var theImagePassed = ""

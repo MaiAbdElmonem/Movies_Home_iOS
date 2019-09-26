@@ -13,7 +13,9 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     
     var presenter:ActorListPresenter?
 
-    var  imageURL="https://image.tmdb.org/t/p/w500/"
+    let  baseimageURL=URL(string: "https://image.tmdb.org/t/p/w500/")
+    let placeholderImage = UIImage(named: "apple")
+    
 
    
     @IBOutlet weak var actorsTableView: UITableView!
@@ -55,8 +57,11 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
             presenter?.incrementPage()
             presenter?.getJson()
         }
-        if presenter!.getarrCount() != 0 {
+       
+        if (indexPath.row < (presenter?.getarrCount())!){
+            let ImageUrl = baseimageURL?.appendingPathComponent((presenter!.actormodel?.getactorImage(index: indexPath.row))!)
              cell?.actorName.text = presenter!.getName(index:indexPath.row)
+            cell?.actorImage.sd_setImage(with: ImageUrl, placeholderImage: placeholderImage)
         }
 //        if presenter!.getarrCount()!=0 {
 //            cell?.actorImage.sd_setImage(with: <#T##URL?#>, placeholderImage: <#T##UIImage?#>)
@@ -67,9 +72,10 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     
          func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            print("You selected row #\(indexPath.row)!")
+            let ImageUrl = baseimageURL?.appendingPathComponent((presenter!.actormodel?.getactorImage(index: indexPath.row))!)
             let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
             myVC.stringPassed = presenter!.getName(index: indexPath.row)
-////            myVC.theImagePassed =  actors[indexPath.row].profile_path
+            myVC.theImagePassed = (ImageUrl?.absoluteString)!
 //            myVC.idPassed = networkService.ActorsArray[indexPath.row].id
             navigationController?.pushViewController(myVC, animated: true)
 //    
