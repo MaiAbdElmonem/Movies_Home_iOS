@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Movies Home/Features/ActorList/View/ActorListViewController.swift"
-            timestampString = "591221020.533411"
+            timestampString = "591318170.191783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Movies Home/Features/ActorList/View/ActorListViewController.swift"
-            timestampString = "591221020.533565"
+            timestampString = "591318170.192047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "reloadTableData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

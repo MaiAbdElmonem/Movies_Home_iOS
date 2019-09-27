@@ -9,6 +9,8 @@
 import Foundation
 
 class ActorModel: ActorModelProtocol {
+   
+    
   
     var totalResults = 0
     var actors : [Actor]=[]
@@ -22,6 +24,9 @@ class ActorModel: ActorModelProtocol {
     func getName(index: Int) -> String {
         return actors[index].name
         
+    }
+    func getId(index: Int) -> Int {
+        return actors[index].id
     }
     
     func getactorImage(index: Int) -> String {
@@ -95,9 +100,7 @@ class ActorModel: ActorModelProtocol {
                 }
                 completion(true)
             }
-            
             //                self.whenComplete?(self.actors)
-            
         }
         
         task.resume()

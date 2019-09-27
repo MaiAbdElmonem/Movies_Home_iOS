@@ -63,7 +63,7 @@
 		5D45935F233CF32A006B23D7 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
 		5DB0BAB6233D52AC00D2E69A /* ProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewProtocol.swift; sourceTree = "<group>"; };
 		5DB0BAB8233D536600D2E69A /* ProfileDetailsModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsModelProtocol.swift; sourceTree = "<group>"; };
-		5DB0BABA233D53D700D2E69A /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsPresenter.swift; path = "Movies Home/Features/Details/Model/DetailsPresenter.swift"; sourceTree = SOURCE_ROOT; };
+		5DB0BABA233D53D700D2E69A /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsPresenter.swift; path = "Movies Home/Features/Details/Presenter/DetailsPresenter.swift"; sourceTree = SOURCE_ROOT; };
 		5DB0BABC233D550600D2E69A /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		84802C26231E3369008FDF3D /* Movies Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84802C29231E3369008FDF3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		2D1C6D38232F7DF500753392 /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				2D1C6D3F232F7E9900753392 /* Presenter */,
+				5D8D4E76233ECC61001E7A06 /* Presenter */,
 				2D1C6D3E232F7E8E00753392 /* View */,
 				2D1C6D3D232F7E8200753392 /* Model */,
 			);
@@ -210,14 +210,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2D1C6D3F232F7E9900753392 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				5DB0BABA233D53D700D2E69A /* DetailsPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		2D1C6D40232F7EAA00753392 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +228,14 @@
 		2D1C6D42232F7EBA00753392 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5D8D4E76233ECC61001E7A06 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5DB0BABA233D53D700D2E69A /* DetailsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";

@@ -9,5 +9,7 @@
 import Foundation
 
 protocol DetailsModelProtocol {
-    
+    func getActorProfilesJson(actorId:Int,completion:@escaping (_ success:Bool)->Void)  
+    func getprofileArrCount() -> Int
+    func getactorprofileImage(index:Int) -> String 
 }

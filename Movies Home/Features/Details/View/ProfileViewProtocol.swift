@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ProfileViewProtocol {
-    func reloadCollectionData()
+   func reloadCollectionData()
 }

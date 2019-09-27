@@ -63,22 +63,17 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
              cell?.actorName.text = presenter!.getName(index:indexPath.row)
             cell?.actorImage.sd_setImage(with: ImageUrl, placeholderImage: placeholderImage)
         }
-//        if presenter!.getarrCount()!=0 {
-//            cell?.actorImage.sd_setImage(with: <#T##URL?#>, placeholderImage: <#T##UIImage?#>)
-//        }
         return cell!
     }
     
     
          func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            print("You selected row #\(indexPath.row)!")
-            let ImageUrl = baseimageURL?.appendingPathComponent((presenter!.actormodel?.getactorImage(index: indexPath.row))!)
             let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
             myVC.stringPassed = presenter!.getName(index: indexPath.row)
-            myVC.theImagePassed = (ImageUrl?.absoluteString)!
-//            myVC.idPassed = networkService.ActorsArray[indexPath.row].id
-            navigationController?.pushViewController(myVC, animated: true)
-//    
+            myVC.theImagePassed = (presenter?.actormodel?.getactorImage(index: indexPath.row))!
+            myVC.idPassed = (presenter?.actormodel?.getId(index: indexPath.row))!
+            navigationController?.pushViewController(myVC, animated: true)    
         }
     
     func reloadTableData(){
