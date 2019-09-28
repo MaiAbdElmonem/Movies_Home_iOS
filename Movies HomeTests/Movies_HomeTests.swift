@@ -139,6 +139,4 @@ class Movies_HomeTests: XCTestCase {
             return totalResults
         }
    }
-    
-
 }
