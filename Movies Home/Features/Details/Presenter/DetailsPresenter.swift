@@ -14,12 +14,13 @@ class DetailPresenter{
      var person : MovieDetailsViewController?
     var profileView : ProfileViewProtocol?
     var profileModel : DetailsModelProtocol?
-     init(person:MovieDetailsViewController) {
-     self.person!.personId = actorId
-    }
+   
     init(profileView: ProfileViewProtocol, profileModel: DetailsModelProtocol){
         self.profileView = profileView
         self.profileModel = profileModel
+    }
+    init(person:MovieDetailsViewController) {
+        self.person?.personId = actorId
     }
     
     func getprofiles(){

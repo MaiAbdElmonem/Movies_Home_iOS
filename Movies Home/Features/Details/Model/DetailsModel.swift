@@ -9,6 +9,7 @@
 import Foundation
 
 class DetailsModel : DetailsModelProtocol {
+    var profilesArr:[Profiles]=[]
     func getactorprofileImage(index: Int) -> String {
         return profilesArr[index].file_path
     }
@@ -75,7 +76,7 @@ class DetailsModel : DetailsModelProtocol {
 
     
 //    var person : Profiles?
-   var profilesArr:[Profiles]=[]
+   
 //    let profileBaseUrl=URL(string:"https://api.themoviedb.org/3/person/\(personId)/images?api_key=cb8effcf3a0b27a05a7daba0064a32e1")
     
 }

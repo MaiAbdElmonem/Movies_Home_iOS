@@ -11,11 +11,7 @@ import UIKit
 class MovieDetailsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate , ProfileViewProtocol{
    
     
-    func reloadCollectionData() {
-      DispatchQueue.main.async {
-        self.collectionview.reloadData()
-    }
-}
+
     
     var detailsPresenter : DetailPresenter?
     let profileurl = URL(string: "https://image.tmdb.org/t/p/w500/")
@@ -189,6 +185,10 @@ class MovieDetailsViewController: UIViewController , UICollectionViewDataSource,
 //    }
     
     
-
+    func reloadCollectionData() {
+        DispatchQueue.main.async {
+            self.collectionview.reloadData()
+        }
+    }
     
 }
