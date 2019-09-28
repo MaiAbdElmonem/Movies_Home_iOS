@@ -11,6 +11,7 @@ import UIKit
 class FullScreenViewController: UIViewController {
 
     var fullimgPassed = ""
+    let placeholderFullImage = UIImage(named: "apple")
     
     @IBOutlet weak var fullImage: UIImageView!
     
@@ -35,50 +36,50 @@ class FullScreenViewController: UIViewController {
         let url="https://image.tmdb.org/t/p/w500/"
         var ImageUrl:String = ""
         ImageUrl = url + fullimgPassed
-        
-        get_image(ImageUrl, fullImage)
+         fullImage.sd_setImage(with: URL(string: ImageUrl), placeholderImage: placeholderFullImage)
+//        get_image(ImageUrl, fullImage)
         
     }
     
     
-    func get_image(_ url_str:String, _ imageView:UIImageView)
-    {
-        
-        let url:URL = URL(string: url_str)!
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: url, completionHandler: {
-            (
-            data, response, error) in
-            
-            
-            if data != nil
-            {
-                let image = UIImage(data: data!)
-                
-                
-                if(image != nil)
-                {
-                    
-                    DispatchQueue.main.async(execute: {
-                        
-                        imageView.image = image
-                        
-                        
-                        
-                        
-                    })
-                    
-                }
-                
-            }
-            
-            
-        })
-        
-        task.resume()
-    }
-    
+//    func get_image(_ url_str:String, _ imageView:UIImageView)
+//    {
+//
+//        let url:URL = URL(string: url_str)!
+//        let session = URLSession.shared
+//
+//        let task = session.dataTask(with: url, completionHandler: {
+//            (
+//            data, response, error) in
+//
+//
+//            if data != nil
+//            {
+//                let image = UIImage(data: data!)
+//
+//
+//                if(image != nil)
+//                {
+//
+//                    DispatchQueue.main.async(execute: {
+//
+//                        imageView.image = image
+//
+//
+//
+//
+//                    })
+//
+//                }
+//
+//            }
+//
+//
+//        })
+//
+//        task.resume()
+//    }
+//
 
     /*
     // MARK: - Navigation

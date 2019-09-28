@@ -20,6 +20,7 @@ class DetailPresenter{
         self.profileModel = profileModel
     }
     init(person:MovieDetailsViewController) {
+        self.person = person
         self.person?.personId = actorId
     }
     

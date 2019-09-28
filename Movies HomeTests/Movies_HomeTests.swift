@@ -23,7 +23,8 @@ class Movies_HomeTests: XCTestCase {
         
         testActorView = MockingView()
         testActorModel = MockingModel()
-        actorPresenter = ActorListPresenter(actorview: MockingView?, actormodel: MockingModel)
+        actorPresenter = ActorListPresenter(actorview: testActorView!, actormodel: testActorModel!)
+       
     }
 
     override func tearDown() {

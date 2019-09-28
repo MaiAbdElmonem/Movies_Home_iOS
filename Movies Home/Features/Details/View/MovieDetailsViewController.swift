@@ -177,12 +177,13 @@ class MovieDetailsViewController: UIViewController , UICollectionViewDataSource,
         return header
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let fullscreen = storyboard?.instantiateViewController(withIdentifier: "full") as! FullScreenViewController
-////            fullscreen.fullimgPassed = profiles[indexPath.row].file_path
-//            navigationController?.pushViewController(fullscreen, animated: true)
-//
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let fullscreen = storyboard?.instantiateViewController(withIdentifier: "full") as! FullScreenViewController
+        fullscreen.fullimgPassed = (detailsPresenter?.getactorprofileImage(index: indexPath.row))!
+//                profiles[indexPath.row].file_path
+            navigationController?.pushViewController(fullscreen, animated: true)
+
+    }
     
     
     func reloadCollectionData() {
