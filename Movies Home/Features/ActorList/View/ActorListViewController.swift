@@ -67,15 +67,15 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
-         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           print("You selected row #\(indexPath.row)!")
-            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
-            myVC.stringPassed = presenter!.getName(index: indexPath.row)
-            myVC.theImagePassed = (presenter?.actormodel?.getactorImage(index: indexPath.row))!
-            myVC.idPassed = (presenter?.actormodel?.getId(index: indexPath.row))!
-            navigationController?.pushViewController(myVC, animated: true)    
-        }
-    
+//         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//           print("You selected row #\(indexPath.row)!")
+//            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
+//            myVC.stringPassed = presenter!.getName(index: indexPath.row)
+//            myVC.theImagePassed = (presenter?.actormodel?.getactorImage(index: indexPath.row))!
+//            myVC.idPassed = (presenter?.actormodel?.getId(index: indexPath.row))!
+//            navigationController?.pushViewController(myVC, animated: true)
+//        }
+//
     func reloadTableData(){
         DispatchQueue.main.async {
             self.actorsTableView.separatorStyle = .singleLine
