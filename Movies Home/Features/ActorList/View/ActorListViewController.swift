@@ -7,15 +7,11 @@
 //
 
 import UIKit
-import SDWebImage
+
 
 class ActorListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate ,ActorViewProtocol{
     
     var presenter:ActorListPresenter?
-
-    let  baseimageURL=URL(string: "https://image.tmdb.org/t/p/w500/")
-    let placeholderImage = UIImage(named: "apple")
-    
 
    
     @IBOutlet weak var actorsTableView: UITableView!
@@ -49,33 +45,28 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath ) as? ActorTableViewCell
-        
-//        cell?.actorName.text=networkService.ActorsArray[indexPath.row].name
-//         let ImageURL = URL(string: )!
-       
-        if (indexPath.row == presenter!.getarrCount()-3 && presenter?.getarrCount() != presenter?.getResults()){
-            presenter?.incrementPage()
-            presenter?.getJson()
-        }
+//        if (indexPath.row == presenter!.getarrCount()-3 && presenter?.getarrCount() != presenter?.getResults()){
+//            presenter?.incrementPage()
+//            presenter?.getJson()
+//        }
        
         if (indexPath.row < (presenter?.getarrCount())!){
-            let ImageUrl = baseimageURL?.appendingPathComponent((presenter!.actormodel?.getactorImage(index: indexPath.row))!)
-             cell?.actorName.text = presenter!.getName(index:indexPath.row)
-            cell?.actorImage.sd_setImage(with: ImageUrl, placeholderImage: placeholderImage)
+            let getActorObj = presenter?.getActors(index: indexPath.row)
+            cell?.configureCell(actor: getActorObj!)
         }
         return cell!
     }
     
     
-//         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//           print("You selected row #\(indexPath.row)!")
-//            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
-//            myVC.stringPassed = presenter!.getName(index: indexPath.row)
-//            myVC.theImagePassed = (presenter?.actormodel?.getactorImage(index: indexPath.row))!
-//            myVC.idPassed = (presenter?.actormodel?.getId(index: indexPath.row))!
-//            navigationController?.pushViewController(myVC, animated: true)
-//        }
-//
+         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           print("You selected row #\(indexPath.row)!")
+            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
+//            myVC.stringPassed = indexPath
+//            myVC.theImagePassed = indexPath
+//            myVC.idPassed = indexPath
+            navigationController?.pushViewController(myVC, animated: true)
+        }
+
     func reloadTableData(){
         DispatchQueue.main.async {
             self.actorsTableView.separatorStyle = .singleLine

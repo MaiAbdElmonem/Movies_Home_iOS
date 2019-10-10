@@ -9,21 +9,21 @@
 import Foundation
 import ObjectMapper
 
-//struct ActorResponse : Mappable {
-//    var totalResults : Int?
-//    var results : [Actor]?
-//
-//    init?(map: Map) {
-//
-//    }
-//
-//    mutating func mapping(map: Map) {
-//        totalResults <- map["total_results"]
-//        results <- map["results"]
-//    }
-//
-//
-//}
+struct ActorApiResponse : Mappable {
+    var totalResults : Int?
+    var results : [Actor]?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+        totalResults <- map["total_results"]
+        results <- map["results"]
+    }
+
+
+}
 
 struct Actor : Mappable {
     var name: String?

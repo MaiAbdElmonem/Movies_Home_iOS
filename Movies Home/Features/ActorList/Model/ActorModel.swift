@@ -53,14 +53,14 @@ class ActorModel: ActorModelProtocol {
         if pageNum == 1 {
             actors.removeAll()
         }
-        Alamofire.request(baseUrl + "\(pageNum)").responseJSON { (response) in
+        Alamofire.request(baseUrl + "\(pageNum)").responseString { (response) in
             print(response)
             switch response.result {
                 
             case .success:
-                let ActorResponse = response.result.value
-                guard let actors = response.data else {return}
-                completion(true)
+                let apiResponse = ActorApiResponse(JSONString: response.result.value!)
+                self.actors.append(contentsOf: (apiResponse?.results)!)
+             completion(true)
             case .failure(let error):
                 print(error)
                 completion(false)

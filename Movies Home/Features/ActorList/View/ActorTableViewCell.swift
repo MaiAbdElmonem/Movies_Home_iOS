@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ActorTableViewCell: UITableViewCell {
     
@@ -23,6 +24,14 @@ class ActorTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(actor : Actor) {
+        let  baseimageURL=URL(string: "https://image.tmdb.org/t/p/w500/")
+        let placeholderImage = UIImage(named: "apple")
+        let ImageUrl = baseimageURL?.appendingPathComponent(actor.profilepath!)
+        actorName.text = actor.name
+        actorImage.sd_setImage(with: ImageUrl, placeholderImage: placeholderImage)
     }
 
 }
