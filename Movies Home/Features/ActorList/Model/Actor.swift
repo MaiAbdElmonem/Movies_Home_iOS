@@ -21,7 +21,10 @@ struct Actor : Codable {
     }
     
     init(from decoder : Decoder) throws {
-        <#statements#>
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try values.decode(String.self, forKey: .name)
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.profilepath = try values.decodeIfPresent(String.self, forKey: .profilepath)
     }
     
     init(id: Int, profilepath: String, name:String) {
@@ -29,46 +32,6 @@ struct Actor : Codable {
         self.profilepath = profilepath
         self.name = name
     }
-}
-//struct ActorApiResponse : Mappable {
-//    var totalResults : Int?
-//    var results : [Actor]?
-//
-//    init?(map: Map) {
-//
-//    }
-//
-//    mutating func mapping(map: Map) {
-//        totalResults <- map["total_results"]
-//        results <- map["results"]
-//    }
-//
-//
-//}
-
-//struct Actor : Mappable {
-//    var name: String?
-//    var profilepath : String?
-//    var id : Int?
-//
-//    init(id:Int, profilepath:String, name:String) {
-//        self.id = id
-//        self.name = name
-//        self.profilepath = profilepath
-//    }
-//
-//    init?(map: Map) {
-//
-//    }
-//
-//    mutating func mapping(map: Map) {
-//        //string maps api
-//        id <- map["id"]
-//        name <- map["name"]
-//        profilepath <- map["profile_path"]
-//    }
-//
-
     
 }
 
