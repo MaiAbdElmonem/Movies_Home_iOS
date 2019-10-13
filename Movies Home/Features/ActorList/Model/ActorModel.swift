@@ -11,7 +11,7 @@ import Alamofire
 import ObjectMapper
 
 class ActorModel: ActorModelProtocol {
-  
+   
     var totalResults = 0
     var actors : [Actor]=[]
     let baseUrl = ("https://api.themoviedb.org/3/person/popular?api_key=be6e82ab66a065f245b84e4b4692aee8&page=")
@@ -54,7 +54,7 @@ class ActorModel: ActorModelProtocol {
             actors.removeAll()
         }
         Alamofire.request(baseUrl + "\(pageNum)").responseString { (response) in
-            print(response)
+//            print(response)
             switch response.result {
                 
             case .success:

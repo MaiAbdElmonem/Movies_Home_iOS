@@ -10,8 +10,9 @@ import Foundation
 
 class DetailPresenter{
     
-     var actorId = Int()
-     var person : MovieDetailsViewController?
+//     var person : MovieDetailsViewController?
+//    var ActorObj : Actor?
+//    var id = ""
     var profileView : ProfileViewProtocol?
     var profileModel : DetailsModelProtocol?
    
@@ -19,18 +20,19 @@ class DetailPresenter{
         self.profileView = profileView
         self.profileModel = profileModel
     }
-    init(person:MovieDetailsViewController) {
-        self.person = person
-        self.person?.personId = actorId
-    }
+//    init(person:MovieDetailsViewController) {
+//        self.person = person
+//        self.person?.personId = actorId
+//    }
     
     func getprofiles(){
-        profileModel?.getActorProfilesJson(actorId:actorId){ [weak self] success in
+        profileModel?.getActorProfilesJson(){ [weak self] success in
             if(success){
+                DispatchQueue.main.async {
                self?.profileView?.reloadCollectionData()
+                }
             }
         }
-    
  }
     
     func getprofileArrCount() -> Int {
@@ -39,5 +41,13 @@ class DetailPresenter{
     
     func getactorprofileImage(index: Int) -> String { 
         return profileModel!.getactorprofileImage(index: index)
+    }
+    
+    func getActorName() -> String {
+        return profileModel!.getActorName()
+    }
+    
+    func getActorProfilepath() -> String {
+        return profileModel!.getActorProfilepath()
     }
 }

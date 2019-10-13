@@ -10,4 +10,10 @@ import UIKit
 
 class CustomCollectionCell: UICollectionViewCell {
      @IBOutlet var collectionImage: UIImageView!
+//    func displayProfiles(prof : Profiles){
+//    let  baseimageURL=URL(string: "https://image.tmdb.org/t/p/w500/")
+//    let placeholderImage = UIImage(named: "apple")
+//    let ImageUrl = baseimageURL?.appendingPathComponent(prof.filePath!)
+//    collectionImage.sd_setImage(with: ImageUrl, placeholderImage: placeholderImage)
+// }
 }

@@ -9,9 +9,10 @@
 import Foundation
 
 class ActorListPresenter {
+    var actorarrary : [Actor]=[]
     
     var PageNumber=1
-//    var actors : [Actor]=[]
+
     var actorview:ActorViewProtocol?
     var actormodel:ActorModelProtocol?
     
@@ -27,11 +28,16 @@ class ActorListPresenter {
     func getActors(index:Int) -> Actor {
         return actormodel!.getActors(index: index)
     }
+//    func showDetail(index:Int){
+//        let act = actorarrary[index]
+//        actorview?.navigateToActorDetails(actor: act)
+//    }
 
 //    func getName(index: Int) -> String {
 //        return actormodel!.getName(index:index)
 //
 //    }
+    
     func refresh() {
         PageNumber=1
         actormodel!.refresh()

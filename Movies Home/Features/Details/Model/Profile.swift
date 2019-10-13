@@ -7,10 +7,29 @@
 //
 
 import Foundation
-//import UIKit
+import ObjectMapper
 
-class Profiles {
+struct ProfileApiResponse : Mappable {
+    var actorprofiles : [Profiles]?
     
-    var file_path:String = ""
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        actorprofiles <- map["profiles"]
+    }
+    
+}
+
+struct Profiles : Mappable{
+    
+     var filePath:String?
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        filePath <- map["file_path"]
+    }
     
 }

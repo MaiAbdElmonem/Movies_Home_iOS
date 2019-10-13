@@ -15,6 +15,7 @@
 		2D1C6D48232F90B900753392 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D47232F90B900753392 /* ViewProtocol.swift */; };
 		2D1C6D4A232F91B500753392 /* ActorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D49232F91B500753392 /* ActorListPresenter.swift */; };
 		2DA6926B232137B600D547C1 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6926A232137B600D547C1 /* FullScreenViewController.swift */; };
+		5D66E384235246C500891FA1 /* ActorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D66E383235246C500891FA1 /* ActorRouter.swift */; };
 		5DB0BAB7233D52AC00D2E69A /* ProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB0BAB6233D52AC00D2E69A /* ProfileViewProtocol.swift */; };
 		5DB0BAB9233D536600D2E69A /* ProfileDetailsModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB0BAB8233D536600D2E69A /* ProfileDetailsModelProtocol.swift */; };
 		5DB0BABB233D53D700D2E69A /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB0BABA233D53D700D2E69A /* DetailsPresenter.swift */; };
@@ -65,6 +66,7 @@
 		2DA6926A232137B600D547C1 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		311104EF6C56FDC8F8E3C0C9 /* Pods-Movies Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies Home.release.xcconfig"; path = "Target Support Files/Pods-Movies Home/Pods-Movies Home.release.xcconfig"; sourceTree = "<group>"; };
 		4467125C8E26A2015E0958E6 /* Pods-Movies Home-Movies HomeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies Home-Movies HomeUITests.release.xcconfig"; path = "Target Support Files/Pods-Movies Home-Movies HomeUITests/Pods-Movies Home-Movies HomeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5D66E383235246C500891FA1 /* ActorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorRouter.swift; sourceTree = "<group>"; };
 		5DB0BAB6233D52AC00D2E69A /* ProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewProtocol.swift; sourceTree = "<group>"; };
 		5DB0BAB8233D536600D2E69A /* ProfileDetailsModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsModelProtocol.swift; sourceTree = "<group>"; };
 		5DB0BABA233D53D700D2E69A /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsPresenter.swift; path = "Movies Home/Features/Details/Presenter/DetailsPresenter.swift"; sourceTree = SOURCE_ROOT; };
@@ -245,6 +247,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5D66E382235246AF00891FA1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				5D66E383235246C500891FA1 /* ActorRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		5D8D4E76233ECC61001E7A06 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +288,7 @@
 		84802C28231E3369008FDF3D /* Movies Home */ = {
 			isa = PBXGroup;
 			children = (
+				5D66E382235246AF00891FA1 /* Router */,
 				84802C29231E3369008FDF3D /* AppDelegate.swift */,
 				84802C2B231E3369008FDF3D /* ViewController.swift */,
 				2D1C6D36232F7D9500753392 /* Features */,
@@ -570,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F968DA231F16E00059A6D1 /* Profile.swift in Sources */,
+				5D66E384235246C500891FA1 /* ActorRouter.swift in Sources */,
 				2D1C6D44232F8AEE00753392 /* ModelProtocol.swift in Sources */,
 				5DB0BAB9233D536600D2E69A /* ProfileDetailsModelProtocol.swift in Sources */,
 				2D1C6D46232F8D1E00753392 /* ActorModel.swift in Sources */,
@@ -776,7 +788,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Lost.Movies-Home";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -799,7 +811,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Lost.Movies-Home";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

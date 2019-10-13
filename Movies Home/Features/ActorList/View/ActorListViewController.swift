@@ -10,7 +10,7 @@ import UIKit
 
 
 class ActorListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate ,ActorViewProtocol{
-    
+
     var presenter:ActorListPresenter?
 
    
@@ -60,11 +60,14 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     
          func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            print("You selected row #\(indexPath.row)!")
-            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
+            ActorRouter.navigateToActorDetails(at: self.navigationController!, with: (presenter?.getActors(index: indexPath.row))!  )
+//            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
+//            let selected = actorsTableView.cellForRow(at: indexPath) as! ActorTableViewCell
+//            presenter?.showDetail(index: indexPath.row)
 //            myVC.stringPassed = indexPath
 //            myVC.theImagePassed = indexPath
 //            myVC.idPassed = indexPath
-            navigationController?.pushViewController(myVC, animated: true)
+//            navigationController?.pushViewController(myVC, animated: true)
         }
 
     func reloadTableData(){
@@ -73,6 +76,11 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
             self.actorsTableView.reloadData()
             self.actorsTableView.refreshControl?.endRefreshing()
         }    
+    }
+    func navigateToActorDetails(actor: Actor) {
+        let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
+        detailsViewController.detailsPresenter = DetailPresenter(profileView: detailsViewController, profileModel: DetailsModel(personObj: actor))
+            navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
 

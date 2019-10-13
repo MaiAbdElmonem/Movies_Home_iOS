@@ -11,5 +11,6 @@ import Foundation
 protocol ActorViewProtocol:class {
     
     func reloadTableData()
+//    func navigateToActorDetails(actor:Actor)
    
 }
