@@ -10,32 +10,32 @@ import Foundation
 import Moya
 
 enum MovieApi {
-    case Actor(id:Int)
+    case actor(page:Int)
 }
 
 extension MovieApi: TargetType {
   
     var baseURL: URL {
-        guard let url = URL(string: "https://api.themoviedb.org/3") else { fatalError("baseURL could not be configured") }
+        guard let url = URL(string: "https://api.themoviedb.org/3/person/") else { fatalError("baseURL could not be configured") }
         return url
    }
     var path: String {
         switch self {
-        case .Actor (let id):
-            return "/person/\(id)/images"
+        case .actor :
+            return "popular"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .Actor:
+        case .actor:
             return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .Actor:
-            return .requestParameters(parameters: ["api_key": "be6e82ab66a065f245b84e4b4692aee8"] , encoding: URLEncoding.default)
+        case .actor(let page):
+            return .requestParameters(parameters: ["page": page, "api_key": "be6e82ab66a065f245b84e4b4692aee8"] , encoding: URLEncoding.default)
         }
     }
     
@@ -45,8 +45,8 @@ extension MovieApi: TargetType {
     
     var sampleData: Data {
         switch self {
-        case .Actor:
-            return Data()
+        case .actor:
+          return Data()
         }
     }
 }

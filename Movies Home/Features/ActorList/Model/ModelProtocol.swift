@@ -12,11 +12,6 @@ protocol ActorModelProtocol: class {
     func downloadJson(pageNum:Int,completion:@escaping (_ success:Bool)->Void)
     func getArrCount() -> Int
     func getActors(index:Int) -> Actor
-//    func showDetails(index: Int)
-//    func getName(index:Int)->String
-//    func getId(index:Int) -> Int
-//    func getactorImage(index:Int) -> String
-    
     func refresh()
     func getResults() -> Int
     

@@ -32,20 +32,18 @@ class ActorModel: ActorModelProtocol {
         return totalResults
     }
     
-let provider = MoyaProvider<MultiTarget>( plugins: [NetworkLoggerPlugin(verbose: true)])
+let provider = MoyaProvider<MovieApi>(plugins: [NetworkLoggerPlugin(verbose: true)])
     
     func downloadJson(pageNum: Int, completion: @escaping (Bool) -> Void) {
         if pageNum == 1 {
             actors.removeAll()
         }
-        provider.request(MultiTarget(MovieApi.Actor(id: pageNum))) { (response) in
-            switch response {
-                case .success:
+        provider.request(.actor(page: pageNum)) { result in
+            switch result {
+                case .success(let response):
                     do{
-                        print(try Response.mapJSON())
-                        let dec = JSONDecoder()
-                        let parse = try dec.decode(Actor, from: response)
-                self.actors.append(contentsOf: (parse.results)!)
+                        let results = try JSONDecoder().decode(ActorApiResponse.self, from: response.data )
+                self.actors.append(contentsOf: (results.results)!)
                 completion(true)
                     }catch {
                 }
@@ -55,7 +53,7 @@ let provider = MoyaProvider<MultiTarget>( plugins: [NetworkLoggerPlugin(verbose:
                         
             }
         }
-}
+     }
 }
 //        Alamofire.request(baseUrl + "\(pageNum)").responseString { (response) in
 //            switch response.result {
