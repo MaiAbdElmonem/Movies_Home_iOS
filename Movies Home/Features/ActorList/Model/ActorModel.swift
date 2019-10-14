@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
+import Moya
 
 class ActorModel: ActorModelProtocol {
    
@@ -23,22 +23,7 @@ class ActorModel: ActorModelProtocol {
     func getActors(index: Int) -> Actor {
        return actors[index]
     }
-    
-    
-//    func getName(index: Int) -> String {
-//        return actors[index].name
-//
-//    }
-//    func getId(index: Int) -> Int {
-//        return actors[index].id
-//    }
-//
-//    func getactorImage(index: Int) -> String {
-//        if (index <  actors.count){
-//
-//        }
-//        return actors[index].profile_path
-//    }
+
     func refresh() {
         actors.removeAll()
     }
@@ -47,81 +32,45 @@ class ActorModel: ActorModelProtocol {
         return totalResults
     }
     
+let provider = MoyaProvider<MultiTarget>( plugins: [NetworkLoggerPlugin(verbose: true)])
     
-
     func downloadJson(pageNum: Int, completion: @escaping (Bool) -> Void) {
         if pageNum == 1 {
             actors.removeAll()
         }
-        Alamofire.request(baseUrl + "\(pageNum)").responseString { (response) in
-//            print(response)
-            switch response.result {
-                
-            case .success:
-                let apiResponse = ActorApiResponse(JSONString: response.result.value!)
-                self.actors.append(contentsOf: (apiResponse?.results)!)
-             completion(true)
+        provider.request(MultiTarget(MovieApi.Actor(id: pageNum))) { (response) in
+            switch response {
+                case .success:
+                    do{
+                        print(try Response.mapJSON())
+                        let dec = JSONDecoder()
+                        let parse = try dec.decode(Actor, from: response)
+                self.actors.append(contentsOf: (parse.results)!)
+                completion(true)
+                    }catch {
+                }
             case .failure(let error):
                 print(error)
                 completion(false)
+                        
             }
         }
-        
-//        let url = URL(string: urlStr+"\(pageNum)")!
-//        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-//
-//            // ensure there is no error for this HTTP response
-//            guard error == nil else {
-//                print ("error: \(error!)")
-//                return
-//            }
-//
-//            // ensure there is data returned from this HTTP response
-//            guard let content = data else {
-//                print("No data")
-//                return
-//            }
-//
-//            //                self.whenComplete!(data)
-//            //                 serialise the data / NSData object into Dictionary [String : Any]
-//            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-//                print("Not containing JSON")
-//                return
-//            }
-//
-//
-//            //            print("gotten json response dictionary is \n \(json)")
-//
-//            // update UI using the response here
-//            do{
-//
-//                let actorsresultsArrary = json["results"]
-//                    as? [Dictionary <String,Any>] ?? []
-//
-//                for i in actorsresultsArrary{
-//                    let actorObj = Actor()
-//                    let actorname = i["name"] as? String ?? ""
-//                    let actorpath = i["profile_path"] as? String ?? ""
-//                    let actorId = i["id"] as! Int
-//
-//
-//                    actorObj.name = actorname
-//                    actorObj.profile_path = actorpath
-//                    actorObj.id = actorId
-//
-//                    self.actors.append(actorObj)
-//                }
-//                completion(true)
-//            }
-//            //                self.whenComplete?(self.actors)
-//        }
-//
-//        task.resume()
-//    }
-//
-//
-
-    
-    
- }
 }
+}
+//        Alamofire.request(baseUrl + "\(pageNum)").responseString { (response) in
+//            switch response.result {
+//
+//            case .success:
+//                let apiResponse = ActorApiResponse(JSONString: response.result.value!)
+//                self.actors.append(contentsOf: (apiResponse?.results)!)
+//             completion(true)
+//            case .failure(let error):
+//                print(error)
+//                completion(false)
+//            }
+//        }
+        
+
+ 
+
+

@@ -15,7 +15,7 @@
 		2D1C6D48232F90B900753392 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D47232F90B900753392 /* ViewProtocol.swift */; };
 		2D1C6D4A232F91B500753392 /* ActorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C6D49232F91B500753392 /* ActorListPresenter.swift */; };
 		2DA6926B232137B600D547C1 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6926A232137B600D547C1 /* FullScreenViewController.swift */; };
-		2DBE2AA823537B83009CC36E /* MovieApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE2AA723537B83009CC36E /* MovieApi.swift */; };
+		2DBE2AA823537B83009CC36E /* MovieApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE2AA723537B83009CC36E /* MovieApiService.swift */; };
 		5D66E384235246C500891FA1 /* ActorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D66E383235246C500891FA1 /* ActorRouter.swift */; };
 		5DB0BAB7233D52AC00D2E69A /* ProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB0BAB6233D52AC00D2E69A /* ProfileViewProtocol.swift */; };
 		5DB0BAB9233D536600D2E69A /* ProfileDetailsModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB0BAB8233D536600D2E69A /* ProfileDetailsModelProtocol.swift */; };
@@ -65,7 +65,7 @@
 		2D1C6D47232F90B900753392 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		2D1C6D49232F91B500753392 /* ActorListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListPresenter.swift; sourceTree = "<group>"; };
 		2DA6926A232137B600D547C1 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
-		2DBE2AA723537B83009CC36E /* MovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApi.swift; sourceTree = "<group>"; };
+		2DBE2AA723537B83009CC36E /* MovieApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiService.swift; sourceTree = "<group>"; };
 		311104EF6C56FDC8F8E3C0C9 /* Pods-Movies Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies Home.release.xcconfig"; path = "Target Support Files/Pods-Movies Home/Pods-Movies Home.release.xcconfig"; sourceTree = "<group>"; };
 		4467125C8E26A2015E0958E6 /* Pods-Movies Home-Movies HomeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies Home-Movies HomeUITests.release.xcconfig"; path = "Target Support Files/Pods-Movies Home-Movies HomeUITests/Pods-Movies Home-Movies HomeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D66E383235246C500891FA1 /* ActorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorRouter.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				848F5E38231E5651008033E8 /* Actor.swift */,
 				2D1C6D43232F8AEE00753392 /* ModelProtocol.swift */,
 				2D1C6D45232F8D1E00753392 /* ActorModel.swift */,
-				2DBE2AA723537B83009CC36E /* MovieApi.swift */,
+				2DBE2AA723537B83009CC36E /* MovieApiService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,9 +291,9 @@
 		84802C28231E3369008FDF3D /* Movies Home */ = {
 			isa = PBXGroup;
 			children = (
-				5D66E382235246AF00891FA1 /* Router */,
 				84802C29231E3369008FDF3D /* AppDelegate.swift */,
 				84802C2B231E3369008FDF3D /* ViewController.swift */,
+				5D66E382235246AF00891FA1 /* Router */,
 				2D1C6D36232F7D9500753392 /* Features */,
 				84802C35231E3371008FDF3D /* Info.plist */,
 				2D06168F2327BCC8006FAC66 /* Resourses */,
@@ -590,7 +590,7 @@
 				2D1C6D46232F8D1E00753392 /* ActorModel.swift in Sources */,
 				84F968E2231F46160059A6D1 /* MovieDetailsViewController.swift in Sources */,
 				2D1C6D48232F90B900753392 /* ViewProtocol.swift in Sources */,
-				2DBE2AA823537B83009CC36E /* MovieApi.swift in Sources */,
+				2DBE2AA823537B83009CC36E /* MovieApiService.swift in Sources */,
 				848F5E39231E5651008033E8 /* Actor.swift in Sources */,
 				2D0616952327CDCD006FAC66 /* ActorListViewController.swift in Sources */,
 				84802C2C231E3369008FDF3D /* ViewController.swift in Sources */,
