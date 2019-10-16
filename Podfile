@@ -9,6 +9,8 @@ target 'Movies Home' do
 pod 'Moya'
 pod 'SDWebImage', '~> 5.0'
 pod 'ObjectMapper', '~> 3.4'
+pod 'OAuthSwift', '~> 2.0.0'
+pod 'SWXMLHash', '~> 5.0.0'
 
   target 'Movies HomeTests' do
     inherit! :search_paths
