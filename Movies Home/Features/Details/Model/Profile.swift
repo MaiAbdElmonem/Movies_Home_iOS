@@ -18,7 +18,6 @@ struct ProfileApiResponse : Mappable {
     mutating func mapping(map: Map) {
         actorprofiles <- map["profiles"]
     }
-    
 }
 
 struct Profiles : Mappable{
