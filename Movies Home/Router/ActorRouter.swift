@@ -13,7 +13,7 @@ class ActorRouter {
     class func navigateToActorDetails(at parent: UINavigationController, with model: Actor) {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
-        detailsViewController.detailsPresenter = DetailPresenter(profileView: detailsViewController, profileModel: DetailsModel(personObj: model))
+        detailsViewController.detailsPresenter = DetailPresenter(profileView: detailsViewController, profileModel: DetailsModel(person: model))
         parent.pushViewController(detailsViewController, animated: true)
     }
    

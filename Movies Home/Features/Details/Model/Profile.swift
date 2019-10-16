@@ -23,7 +23,7 @@ struct ProfileApiResponse : Mappable {
 
 struct Profiles : Mappable{
     
-     var filePath:String?
+    var filePath:String?
     
     init?(map: Map) {
     }

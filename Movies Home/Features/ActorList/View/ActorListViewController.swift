@@ -60,6 +60,8 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
     
          func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            print("You selected row #\(indexPath.row)!")
+            var obj = presenter?.getActors(index: indexPath.row)
+            print(obj!)
             ActorRouter.navigateToActorDetails(at: self.navigationController!, with: (presenter?.getActors(index: indexPath.row))!  )
 //            let myVC = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
 //            let selected = actorsTableView.cellForRow(at: indexPath) as! ActorTableViewCell
@@ -77,10 +79,6 @@ class ActorListViewController: UIViewController, UITableViewDataSource, UITableV
             self.actorsTableView.refreshControl?.endRefreshing()
         }    
     }
-    func navigateToActorDetails(actor: Actor) {
-        let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "dvc") as! MovieDetailsViewController
-        detailsViewController.detailsPresenter = DetailPresenter(profileView: detailsViewController, profileModel: DetailsModel(personObj: actor))
-            navigationController?.pushViewController(detailsViewController, animated: true)
-    }
+
 }
 

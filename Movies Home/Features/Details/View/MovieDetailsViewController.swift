@@ -10,18 +10,10 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate , ProfileViewProtocol{
    
-    
-
-    
     var detailsPresenter : DetailPresenter?
     let profileurl = URL(string: "https://image.tmdb.org/t/p/w500/")
     let placeholderProfileImage = UIImage(named: "apple")
-//
-//    var stringPassed = ""
-//    var theImagePassed = ""
-//    var idPassed = Int()
-//    var personId = Int()
-//    var file_path:String=""
+
     @IBOutlet var collectionview: UICollectionView!
 
     override func viewDidLoad() {
@@ -30,7 +22,6 @@ class MovieDetailsViewController: UIViewController , UICollectionViewDataSource,
         self.collectionview.delegate=self
         
         detailsPresenter?.getprofiles()
-
     }
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -66,8 +57,8 @@ class MovieDetailsViewController: UIViewController , UICollectionViewDataSource,
         fullscreen.fullimgPassed = (detailsPresenter?.getactorprofileImage(index: indexPath.row))!
             navigationController?.pushViewController(fullscreen, animated: true)
     }
+    
     func reloadCollectionData() {
             self.collectionview.reloadData()
     }
-    
 }
